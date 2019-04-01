@@ -1,0 +1,73 @@
+{
+  "name": "UserProfile",
+  "doc": "Filterable attributes",
+  "index": true,
+  "type": "record",
+  "fields": [
+    {
+      "name": "int",
+      "type": "int"
+    },
+    {
+      "name": "string",
+      "type": "string"
+    },
+    {
+      "name": "enum",
+      "type": {
+        "type": "enum",
+        "name": "status",
+        "symbols": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "name": "array",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "map",
+      "type": {
+        "type": "map",
+        "values": "string"
+      }
+    },
+    {
+      "name": "map1",
+      "type": "map",
+      "values": {
+        "type": "enum",
+        "name": "status1",
+        "symbols": [
+          "A",
+          "B",
+          "C"
+        ]
+      }
+    },
+    {
+      "name": "set",
+      "type": "set"
+    },
+    {
+      "name": "lruSet",
+      "type": "lru_set",
+      "limit": "30 days"
+    },
+    {
+      "name": "optionalStr",
+      "type": "optional",
+      "value": "string"
+    },
+    {
+      "name": "dateExample",
+      "type": "date"
+    }
+  ]
+}
