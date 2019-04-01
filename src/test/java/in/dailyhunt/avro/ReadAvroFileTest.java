@@ -42,7 +42,7 @@ import org.junit.Test;
 public class ReadAvroFileTest {
 
   private static final Schema STATUS_SCHEMA = new Schema.Parser()
-      .parse("{\"type\":\"enum\",\"name\":\"status\",\"symbols\":[\"FOLLOW\",\"BLOCK\",\"UNFOLLOW\"]}");
+      .parse("{\"type\":\"enum\",\"name\":\"status\",\"symbols\":[\"A\",\"B\",\"C\"]}");
 
 
   @SuppressWarnings("unchecked")
@@ -80,7 +80,7 @@ public class ReadAvroFileTest {
 
     assertEquals(123, anInt);
     assertEquals("nrtavro", anString.toString());
-    assertEquals("FOLLOW", anEnum.toString());
+    assertEquals("A", anEnum.toString());
     assertEquals("arr1", anArray.get(0).toString());
 
     final Utf8 mapKey = new Utf8("key1");
@@ -119,13 +119,13 @@ public class ReadAvroFileTest {
     GenericRecord record = new Record(schema);
     record.put("int", 123);
     record.put("string", "nrtavro");
-    record.put("enum", new EnumSymbol(STATUS_SCHEMA, "FOLLOW"));
+    record.put("enum", new EnumSymbol(STATUS_SCHEMA, "A"));
     record.put("array", Collections.singletonList("arr1"));
     record.put("map", new HashMap<String, String>() {{
       put("key1", "value");
     }});
     record.put("map1", new HashMap<String, EnumSymbol>() {{
-      put("key1", new EnumSymbol(STATUS_SCHEMA, "FOLLOW"));
+      put("key1", new EnumSymbol(STATUS_SCHEMA, "A"));
     }});
 
     record.put("set", new HashSet<>(Collections.singletonList("hello")));
