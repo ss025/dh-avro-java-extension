@@ -1,0 +1,14 @@
+{
+  "name": "video",
+  "type": "record",
+  "fields": [
+    {
+      "name": "asset_id",
+      "type": "int"
+    },
+    {
+      "name": "asset_type",
+      "type": "int"
+    }
+  ]
+}
